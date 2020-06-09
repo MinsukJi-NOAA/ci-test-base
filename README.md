@@ -1,3 +1,6 @@
+![](https://github.com/MinsukJi-NOAA/ci-test-base/workflows/centos%207/badge.svg)
+![](https://github.com/MinsukJi-NOAA/ci-test-base/workflows/ubuntu%2020.04/badge.svg)
+
 - Docker image to be used by ufs-weather-model for continuous integration
 - Install tool chains and dependencies
 - Adapted from https://github.com/DusanJovic-NOAA/simple-ufs
