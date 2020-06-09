@@ -1,0 +1,26 @@
+name: ubuntu 20.04
+on: [push, pull_request]
+
+jobs:
+  job_1:
+    name: create ci-test-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: build image
+      run: |
+        printf '{\n    "experimental": true\n}' \
+        | sudo tee /etc/docker/daemon.json >/dev/null
+        sudo cat /etc/docker/daemon.json
+        sudo systemctl restart docker
+        sleep 10
+        docker build --compress --squash -t ctb -f dockerfile/ubuntu20.04 .
+
+    - name: push image
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" \
+        | docker login -u minsukjinoaa --password-stdin
+        docker tag ctb minsukjinoaa/ci-test-base:ubuntu20.04
+        docker push minsukjinoaa/ci-test-base:ubuntu20.04

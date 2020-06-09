@@ -1,0 +1,27 @@
+- Docker image to be used by ufs-weather-model for continuous integration
+- Install tool chains and dependencies
+- Adapted from https://github.com/DusanJovic-NOAA/simple-ufs
+
+- CentOS 7
+  - As root install (in the location):
+    - gcc 9.1.1 (/opt/rh/devtoolset-9/root/usr/bin/)
+    - cmake 3.17.0 (/usr/local/cmake/bin/)
+    - mpich 3.3.1 (/usr/local/mpich3/)
+    - hdf5 1.10.6 (/usr/local/)
+    - netcdf 4.7.3 (/usr/local/)
+    - netcdf-fortran 4.5.2 (/usr/local/)
+    - esmf 8.0.0 (/usr/local/)
+    - ncep libararies release/public-v1 (/usr/local/NCEPlibs/)
+    - docker pull minsukjinoaa/ci-test-base:centos7
+
+- Ubuntu 20.04
+  - As root install (in the location):
+    - gcc 9.3.0 (/usr/bin/)
+    - cmake 3.16.3 (/usr/bin/)
+    - mpich 3.3.2 (/usr/bin/)
+    - hdf5 1.10.6 (/usr/local/)
+    - netcdf 4.7.3 (/usr/local/)
+    - netcdf-fortran 4.5.2 (/usr/local/)
+    - esmf 8.0.0 (/usr/local/)
+    - ncep libararies release/public-v1 (/usr/local/NCEPlibs/)
+    - docker pull minsukjinoaa/ci-test-base:ubuntu20.04

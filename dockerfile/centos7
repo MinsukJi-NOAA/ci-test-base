@@ -1,0 +1,25 @@
+FROM centos:7
+
+RUN yum -y update && yum clean all && yum -y install centos-release-scl \
+ && yum -y install devtoolset-9-gcc-c++ devtoolset-9-gcc-gfortran \
+ && yum -y install autoconf automake curl git libtool make python27 which && yum clean all
+ENV PATH="/opt/rh/devtoolset-9/root/usr/bin:${PATH}"
+
+RUN cd /tmp \
+ && curl -fsSRLO https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.tar.gz \
+ && mkdir -p /usr/local/cmake \
+ && tar zxvf cmake-3.17.0-Linux-x86_64.tar.gz -C /usr/local/cmake --strip-components=1 \
+ && rm -f cmake-3.17.0-Linux-x86_64.tar.gz
+ENV PATH="/usr/local/cmake/bin:${PATH}"
+
+COPY . /tmp/ci-test-base
+
+RUN cd /tmp/ci-test-base/libs/mpilibs && ./build.sh gnu
+ENV PATH="/usr/local/mpich3/bin:${PATH}"
+
+RUN cd /tmp/ci-test-base \
+ && ./get.sh && ./build.sh gnu -3rdparty -nceplibs \
+ && cd && rm -rf /tmp/ci-test-base
+
+RUN useradd -ms /bin/bash tester
+CMD ["/bin/bash"]
