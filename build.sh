@@ -88,6 +88,7 @@ echo
 OS=$(uname -s)
 
 MPI_IMPLEMENTATION=${MPI_IMPLEMENTATION:-mpich3}
+#MPI_IMPLEMENTATION=${MPI_IMPLEMENTATION:-openmpi}
 if ! command -v mpiexec > /dev/null ; then
   if [[ -f ${PREFIX_PATH}/${MPI_IMPLEMENTATION}/bin/mpiexec ]]; then
     export PATH=${PREFIX_PATH}/${MPI_IMPLEMENTATION}/bin:$PATH

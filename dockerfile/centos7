@@ -16,6 +16,7 @@ COPY . /tmp/ci-test-base
 
 RUN cd /tmp/ci-test-base/libs/mpilibs && ./build.sh gnu
 ENV PATH="/usr/local/mpich3/bin:${PATH}"
+#ENV PATH="/usr/local/openmpi/bin:${PATH}"
 
 RUN cd /tmp/ci-test-base \
  && ./get.sh && ./build.sh gnu -3rdparty -nceplibs \
