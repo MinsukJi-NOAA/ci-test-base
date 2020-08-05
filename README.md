@@ -14,7 +14,13 @@
     - netcdf 4.7.3 (/usr/local/)
     - netcdf-fortran 4.5.2 (/usr/local/)
     - esmf 8.0.0 (/usr/local/)
-    - ncep libararies release/public-v1 (/usr/local/NCEPlibs/)
+    - ncep libararies develop branch (/usr/local/NCEPlibs/)
+      - bacio-2.4.0
+      - nemsio-2.5.1
+      - w3nco-2.4.0
+      - sp-2.3.0
+      - w3emc-2.7.0
+      - sigio-2.3.0
     - docker pull minsukjinoaa/ci-test-base:centos7
 
 - Ubuntu 20.04
@@ -26,5 +32,11 @@
     - netcdf 4.7.3 (/usr/local/)
     - netcdf-fortran 4.5.2 (/usr/local/)
     - esmf 8.0.0 (/usr/local/)
-    - ncep libararies release/public-v1 (/usr/local/NCEPlibs/)
+    - ncep libararies develop branch (/usr/local/NCEPlibs/)
+      - bacio-2.4.0
+      - nemsio-2.5.1
+      - w3nco-2.4.0
+      - sp-2.3.0
+      - w3emc-2.7.0
+      - sigio-2.3.0
     - docker pull minsukjinoaa/ci-test-base:ubuntu20.04

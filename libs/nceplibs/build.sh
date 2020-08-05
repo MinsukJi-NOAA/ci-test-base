@@ -53,53 +53,23 @@ echo
 
 MYDIR=$(cd "$(dirname "$(readlink -n "${BASH_SOURCE[0]}" )" )" && pwd -P)
 
-ALL_LIBS="
-NCEPLIBS-bacio
-NCEPLIBS-g2
-NCEPLIBS-g2tmpl
-NCEPLIBS-gfsio
-NCEPLIBS-ip
-NCEPLIBS-landsfcutil
-NCEPLIBS-w3nco
-NCEPLIBS-nemsio
-NCEPLIBS-sigio
-NCEPLIBS-w3emc
-NCEPLIBS-sfcio
-NCEPLIBS-sp
-EMC_crtm
-"
+printf '%-.30s ' "Building NCEPLIBS ..........................."
+(
+  set -x
 
-for libname in ${ALL_LIBS}; do
-  printf '%-.30s ' "Building ${libname} ..........................."
-  (
-    set -x
-    cd ${MYDIR}/${libname}
+  rm -rf build
+  mkdir build && cd build
 
-    install_name=${libname//NCEPLIBS-/}
-    install_name=${install_name//EMC_/}
+  cmake -DCMAKE_INSTALL_PREFIX=/usr/local/NCEPlibs \
+        -DCMAKE_C_COMPILER=${CC} \
+        -DCMAKE_Fortran_COMPILER=${FC} \
+        -DCMAKE_PREFIX_PATH="/usr/local" \
+        ../NCEPLIBS
 
-    if [[ -f VERSION ]]; then
-      version=$(cat VERSION)
-      install_name+="_${version}"
-    fi
+  make -j8 VERBOSE=1
 
-    rm -rf build
-    mkdir build
-    cd build
-    rm -rf ${MYDIR}/local/${install_name}
-
-    cmake .. \
-          -DCMAKE_INSTALL_PREFIX=/usr/local/NCEPlibs/${install_name} \
-          -DCMAKE_C_COMPILER=${CC} \
-          -DCMAKE_Fortran_COMPILER=${FC} \
-          -DCMAKE_BUILD_TYPE=RELEASE \
-          -DCMAKE_PREFIX_PATH="/usr/local;/usr/local/NCEPlibs"
-    make VERBOSE=1
-    make install
-
-  ) > log_${libname} 2>&1
-  echo 'done'
-done
+) > log_NCEPLIBS 2>&1
+echo 'done'
 
 echo
 date
