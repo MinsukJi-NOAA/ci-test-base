@@ -11,9 +11,9 @@
     - cmake 3.17.0 (/usr/local/cmake/bin/)
     - mpich 3.3.1 (/usr/local/mpich3/)
     - hdf5 1.10.6 (/usr/local/)
-    - netcdf 4.7.3 (/usr/local/)
+    - netcdf 4.7.4 (/usr/local/)
     - netcdf-fortran 4.5.2 (/usr/local/)
-    - esmf 8.0.0 (/usr/local/)
+    - esmf 8.1.0 beta snapshot 21 (/usr/local/)
     - ncep libararies develop branch (/usr/local/NCEPlibs/)
       - bacio-2.4.0
       - nemsio-2.5.1
@@ -29,9 +29,9 @@
     - cmake 3.16.3 (/usr/bin/)
     - mpich 3.3.2 (/usr/bin/)
     - hdf5 1.10.6 (/usr/local/)
-    - netcdf 4.7.3 (/usr/local/)
+    - netcdf 4.7.4 (/usr/local/)
     - netcdf-fortran 4.5.2 (/usr/local/)
-    - esmf 8.0.0 (/usr/local/)
+    - esmf 8.1.0 beta snapshot 21 (/usr/local/)
     - ncep libararies develop branch (/usr/local/NCEPlibs/)
       - bacio-2.4.0
       - nemsio-2.5.1
