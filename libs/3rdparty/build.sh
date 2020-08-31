@@ -117,9 +117,9 @@ LIBPNG=libpng-1.6.35
 JPEG=jpeg-9c
 JASPER=jasper-1.900.16
 HDF5=hdf5-1.10.6
-NETCDF=netcdf-c-4.7.3
+NETCDF=netcdf-c-4.7.4
 NETCDF_FORTRAN=netcdf-fortran-4.5.2
-ESMF=esmf_8_0_0_src
+ESMF=ESMF_8_1_0_beta_snapshot_21
 WGRIB2=wgrib2-2.0.8
 
 [ $INSTALL_ZLIB           == on ] && download_and_check_md5sum   1c9f62f0778697a09d36121ead88e08e   https://www.zlib.net/${ZLIB}.tar.gz
@@ -127,9 +127,9 @@ WGRIB2=wgrib2-2.0.8
 [ $INSTALL_JPEG           == on ] && download_and_check_md5sum   93c62597eeef81a84d988bccbda1e990   http://www.ijg.org/files/jpegsrc.v9c.tar.gz ${JPEG}.tar.gz
 [ $INSTALL_JASPER         == on ] && download_and_check_md5sum   d0401ced2f5cc7aa1629696c5cba5980   http://www.ece.uvic.ca/~frodo/jasper/software/${JASPER}.tar.gz
 [ $INSTALL_HDF5           == on ] && download_and_check_md5sum   37f3089e7487daf0890baf3d3328e54a   https://support.hdfgroup.org/ftp/HDF5/releases/${HDF5:0:9}/${HDF5}/src/${HDF5}.tar.gz
-[ $INSTALL_NETCDF_C       == on ] && download_and_check_md5sum   9e1d7f13c2aef921c854d87037bcbd96   https://www.unidata.ucar.edu/downloads/netcdf/ftp/${NETCDF}.tar.gz
+[ $INSTALL_NETCDF_C       == on ] && download_and_check_md5sum   3e0a97e6abb9a989f8a8a2e395473597   https://www.unidata.ucar.edu/downloads/netcdf/ftp/${NETCDF}.tar.gz
 [ $INSTALL_NETCDF_FORTRAN == on ] && download_and_check_md5sum   864c6a5548b6f1e00579caf3cbbe98cc   https://www.unidata.ucar.edu/downloads/netcdf/ftp/${NETCDF_FORTRAN}.tar.gz
-[ $INSTALL_ESMF           == on ] && download_and_check_md5sum   5cdb3814141068ef15420e7c2d2a158a   http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_8_0_0/${ESMF}.tar.gz
+[ $INSTALL_ESMF           == on ] && download_and_check_md5sum   466c6850f11f1d7027c2f40f69501322   https://github.com/esmf-org/esmf/archive/${ESMF}.tar.gz
 [ $INSTALL_WGRIB2         == on ] && download_and_check_md5sum   3d56cbed5de8c460d304bf2206abc8d3   https://www.ftp.cpc.ncep.noaa.gov/wd51we/wgrib2/wgrib2.tgz.v2.0.8 wgrib2-2.0.8.tar.gz
 
 [ $fetch_only == on ] && exit
@@ -336,7 +336,7 @@ printf '%-.30s ' 'Building esmf ...........................'
   cd ${SRC_PATH}
   rm -rf esmf
   tar -zxf ${ESMF}.tar.gz
-  cd esmf
+  cd esmf-${ESMF}
   export NETCDF=${PREFIX_PATH}
   export ESMF_DIR=$(pwd)
   export ESMF_BOPT=O
