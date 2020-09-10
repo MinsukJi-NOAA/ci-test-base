@@ -13,14 +13,14 @@
     - hdf5 1.10.6 (/usr/local/)
     - netcdf 4.7.4 (/usr/local/)
     - netcdf-fortran 4.5.2 (/usr/local/)
-    - esmf 8.1.0 beta snapshot 21 (/usr/local/)
+    - esmf 8.1.0 beta snapshot 27 (/usr/local/)
     - ncep libararies develop branch (/usr/local/NCEPlibs/)
-      - bacio-2.4.0
-      - nemsio-2.5.1
-      - w3nco-2.4.0
-      - sp-2.3.0
-      - w3emc-2.7.0
-      - sigio-2.3.0
+      - bacio-2.4.1
+      - nemsio-2.5.2
+      - w3nco-2.4.1
+      - sp-2.3.3
+      - w3emc-2.7.3
+      - sigio-2.3.2
     - docker pull minsukjinoaa/ci-test-base:centos7
 
 - Ubuntu 20.04
@@ -31,12 +31,12 @@
     - hdf5 1.10.6 (/usr/local/)
     - netcdf 4.7.4 (/usr/local/)
     - netcdf-fortran 4.5.2 (/usr/local/)
-    - esmf 8.1.0 beta snapshot 21 (/usr/local/)
+    - esmf 8.1.0 beta snapshot 27 (/usr/local/)
     - ncep libararies develop branch (/usr/local/NCEPlibs/)
-      - bacio-2.4.0
-      - nemsio-2.5.1
-      - w3nco-2.4.0
-      - sp-2.3.0
-      - w3emc-2.7.0
-      - sigio-2.3.0
+      - bacio-2.4.1
+      - nemsio-2.5.2
+      - w3nco-2.4.1
+      - sp-2.3.3
+      - w3emc-2.7.3
+      - sigio-2.3.2
     - docker pull minsukjinoaa/ci-test-base:ubuntu20.04
