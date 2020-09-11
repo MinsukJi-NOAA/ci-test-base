@@ -22,5 +22,5 @@ jobs:
       run: |
         echo "${{ secrets.DOCKER_PASSWORD }}" \
         | docker login -u minsukjinoaa --password-stdin
-        docker tag ctb minsukjinoaa/ci-test-base:ubuntu20.04-v4
-        docker push minsukjinoaa/ci-test-base:ubuntu20.04-v4
+        docker tag ctb minsukjinoaa/ci-test-base:ubuntu20.04-v3.5
+        docker push minsukjinoaa/ci-test-base:ubuntu20.04-v3.5
